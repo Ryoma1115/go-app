@@ -1,7 +1,7 @@
 package repository
 
 import (
-	"go-tech-blog/model"
+	"go-tech-blog2/model"
 )
 
 // ArticleList ...
