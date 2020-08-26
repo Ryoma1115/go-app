@@ -46,7 +46,9 @@ document.addEventListener('DOMContentLoaded', () => {
   // プレビューを開くイベントを設定
   previewOpenBtn.addEventListener('click', (event) => {
     // form の「本文」に入力された内容をプレビューにコピー
-    articleFormPreviewTextArea.innerHTML = articleFormBodyTextArea.value;
+    // articleFormPreviewTextArea.innerHTML = articleFormBodyTextArea.value;
+    // form の「本文」に入力された Markdown を HTML に変換してプレビューに埋め込み
+    articleFormPreviewTextArea.innerHTML = md.render(articleFormBodyTextArea.value);
 
     // 入力フォームを非表示
     articleFormBody.style.display = 'none';
