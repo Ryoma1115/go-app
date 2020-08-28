@@ -39,7 +39,11 @@ func main() {
 	e.DELETE("/api/articles/:articleID", handler.ArticleDelete) // 削除
 	e.PATCH("/api/articles/:articleID", handler.ArticleUpdate)  // 更新
 
-	e.Logger.Fatal(e.Start(":8080"))
+	port := os.Getenv("PORT")
+	if port == "" {
+		e.Logger.Fatal("$PORT must be set")
+	}
+	e.Logger.Fatal(e.Start(":" + port))
 }
 
 func createMux() *echo.Echo {
